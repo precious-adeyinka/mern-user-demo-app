@@ -11,9 +11,9 @@ app.use(cors());
 const users = require('./api/users');
 app.use('/api/users', users);
 //serving static files
-app.use(express.static(path.join(__dirname, '../client/userpro/build')))
+app.use(express.static(path.join(__dirname, './client/userpro/build')))
 app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '../client/userpro/build'))
+    res.sendFile(path.join(__dirname, './client/userpro/build'))
 })
 //service port
 const port = process.env.PORT || 5000;
