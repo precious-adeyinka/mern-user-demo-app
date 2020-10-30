@@ -5,16 +5,17 @@ const User = require('../models/user');
 
 //get all users
 router.get('/', (req, res) => {
-    User.find()
+    User.find({})
         .then(users => res.json(users))
         .catch(err => console.log(err))
 })
 //create new user
 router.post('/', (req, res) => {
-    const { name, email } = req.body;
+    const { username, email } = req.body;
     const newUser = new User({
-        name: name, email: email
+        name: username, email: email
     })
+
     newUser.save()
         .then(() => res.json({
             message: "Created account successfully"
